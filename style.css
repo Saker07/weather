@@ -1,0 +1,91 @@
+:root {
+    --weather-bg: rgba(0, 0, 0, 0.4);
+    --weather-border: brown;
+}
+
+* {
+    box-sizing: content-box;
+    margin: 0;
+}
+
+body {
+    background-color: aqua;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+form {
+    width: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+#search {
+    width: 20rem;
+    height: 2rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-color: black;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.bgCont {
+    border-radius: 2rem;
+    background-image: url(img/clear.jpg);
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+}
+
+.weatherContainer {
+    background-color: var(--weather-bg);
+    color: white;
+    font-size: 2rem;
+    height: 50rem;
+    width: 100rem;
+    padding: 2rem;
+    border-width: 1rem;
+    border-style: solid;
+    border-radius: 2rem;
+    border-color: var(--weather-border);
+    display: grid;
+    grid-template: 4fr 1fr 1fr 4fr / 1fr 1fr;
+    grid-template-areas:
+        "weatherMain weatherMain"
+        "temp wind"
+        "tempFelt humidity"
+        "location location";
+    align-items: start;
+    justify-items: start;
+}
+
+
+.mainWeather {
+    grid-area: weatherMain;
+    justify-self: center;
+}
+.temp {grid-area: temp}
+.feltTemp {grid-area: tempFelt}
+.humidity {
+    grid-area: humidity;
+    justify-self: end;
+}
+.wind {
+    grid-area: wind;
+    justify-self: end;
+}
+.location {
+    grid-area: location;
+    align-self: end;
+    justify-self: center;
+}
