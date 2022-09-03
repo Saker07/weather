@@ -1,9 +1,9 @@
 let k = "f4e0c249a3e57cabeea79c16f689c682";
 let unit = "metric";
 console.log("ciao");
-async function getData(){
+async function getData(loc){
     try {
-        let locationRequest = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=CrEmA&limit=5&appid=f4e0c249a3e57cabeea79c16f689c682`, {mode: "cors"})
+        let locationRequest = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=5&appid=f4e0c249a3e57cabeea79c16f689c682`, {mode: "cors"})
 
         locationRequest = await locationRequest.json();
         let lat = locationRequest[0].lat;
@@ -21,11 +21,14 @@ async function getData(){
 }
 async function displayWeatherData(response){
     document.querySelector(".mainWeather").textContent = response.weather[0].main.toUpperCase();
-    document.querySelector(".temp").textContent = response.main.temp;
-    document.querySelector(".feltTemp").textContent = response.main.feels_like;
-    document.querySelector(".humidity").textContent = response.main.humidity;
-    document.querySelector(".wind").textContent = response.wind.speed;
+    document.querySelector(".temp>.data").textContent = response.main.temp;
+    document.querySelector(".feltTemp>.data").textContent = response.main.feels_like;
+    document.querySelector(".humidity>.data").textContent = response.main.humidity;
+    document.querySelector(".wind>.data").textContent = response.wind.speed;
     document.querySelector(".location").textContent = response.name.toUpperCase();
 }
 
-getData().then(displayWeatherData);
+getData("london").then(displayWeatherData);
+
+let anch = document.querySelector("#search");
+anch.addEventListener("change", e=>getData(e.target.value).then(displayWeatherData));
