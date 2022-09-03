@@ -10,10 +10,10 @@
 <body>
     <script src="script.js" defer></script>
 
-    <form method="GET" class="searchbox">
+    <div class="searchbox">
         <label for="search">Location: </label>
         <input type="text" id="search" name="locationSearch">
-    </form>
+    </div>
     <div class="bgCont">
         <div class="weatherContainer">
         <!--
@@ -24,12 +24,13 @@
             main weather! 
         -->
         <h3 class="mainWeather">main weather</h3>
-        <h4 class="temp">temperature</h4>
-        <h4 class="feltTemp">felt temp</h4>
-        <h5 class="humidity">humidity</h5>
-        <h5 class="wind">wind</h5>
+        <h4 class="temp"><span class="desc">Temperature:</span><br><span class="data">temperature</span><span class="unit degree"> °C</span></h4>
+        <h4 class="feltTemp"><span class="desc">Felt Temperature:</span><br><span class="data">felt temp</span><span class="unit degree"> °C</span></h4>
+        <h5 class="humidity"><span class="desc">Humidity:</span><br><span class="data">humidity</span><span class="unit perc"> %</span></h5>
+        <h5 class="wind"><span class="desc">Wind speed:</span><br><span class="data">wind</span><span class="unit speed"> m/s</span></h5>
         <h3 class="location">Location</h3>
         </div>
     </div>
+</body>
 </body>
 </html>
